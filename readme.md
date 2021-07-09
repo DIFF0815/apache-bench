@@ -1,6 +1,6 @@
 # 基于Alpine的Apache Bench镜像
 
-目录：apache-bench
+目录：apache-bench-ab
 
 ## Dockerfile 文件
 
@@ -133,6 +133,40 @@ Time per request(mean, across all concurrent requests) = Time taken for tests / 
 Transfer rate公式：
 Transfer rate = Total transferred / Time taken for tests = 387800 / 4.730s= 80.07 kb/s（近似等于）
 ```
+
+
+
+# ab 命令参数详解
+
+| 参数 | 说明                                                         |
+| ---- | ------------------------------------------------------------ |
+| -n   | 即requests，用于指定压力测试总共的执行次数。                 |
+| -c   | 即concurrency，用于指定压力测试的并发数。                    |
+| -t   | 即timelimit，等待响应的最大时间(单位：秒)。                  |
+| -b   | 即windowsize，TCP发送/接收的缓冲大小(单位：字节)。           |
+| -p   | 即postfile，发送POST请求时需要上传的文件，此外还必须设置 -T参数。 |
+| -u   | 即putfile，发送PUT请求时需要上传的文件，此外还必须设置 -T参数。 |
+| -T   | 即content-type，用于设置Content-Type请求头信息，例如： application/x-www-form-urlencoded，默认值为 text/plain。 |
+| -v   | 即verbosity，指定打印帮助信息的冗余级别。                    |
+| -w   | 以HTML表格形式打印结果。                                     |
+| -i   | 使用HEAD请求代替GET请求。                                    |
+| -x   | 插入字符串作为table标签的属性。                              |
+| -y   | 插入字符串作为tr标签的属性。                                 |
+| -z   | 插入字符串作为td标签的属性。                                 |
+| -C   | 添加cookie信息，例如：“Apache=1234”(可以重复该参数选项以添加多个)。 |
+| -H   | 添加任意的请求头，例如：“Accept-Encoding: gzip”，请求头将会添加在现有的多个请求头之后(可以重复该参数选项以添加多个)。 |
+| -A   | 添加一个基本的网络认证信息，用户名和密码之间用英文冒号隔开。 |
+| -P   | 添加一个基本的代理认证信息，用户名和密码之间用英文冒号隔开。 |
+| -X   | 指定使用的代理服务器和端口号，例如:“126.10.10.3:88”。        |
+| -V   | 打印版本号并退出。                                           |
+| -k   | 使用HTTP的KeepAlive特性。                                    |
+| -d   | 不显示百分比。                                               |
+| -S   | 不显示预估和警告信息。                                       |
+| -g   | 输出结果信息到gnuplot格式的文件中。                          |
+| -e   | 输出结果信息到CSV格式的文件中。                              |
+| -r   | 指定接收到错误信息时不退出程序。                             |
+| -h   | 显示用法信息，其实就是 `ab -help`。                          |
+|      |                                                              |
 
 
 
